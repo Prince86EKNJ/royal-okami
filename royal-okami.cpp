@@ -16,7 +16,7 @@ int main()
 {
 	std::cout << "Hello C++!" << std::endl;
 
-	int sdlInitResult = SDL_Init(SDL_INIT_EVERYTHING);	
+	int sdlInitResult = SDL_Init(SDL_INIT_EVERYTHING);
 	if(sdlInitResult == 0)
 		std::cout << "It works!" << std::endl;
 	else
@@ -55,6 +55,6 @@ int main()
 	SDL_Delay(3000);
 
 	SDL_DestroyWindow(window);
-	
+
 	atexit(SDL_Quit);
 }
