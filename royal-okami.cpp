@@ -39,22 +39,33 @@ int main()
 	);
 	SDL_GL_CreateContext(window);
 
-	glClearColor(0.5, 0.5, 0.5, 0.5);
-	SDL_GL_SwapWindow(window);
+	// Game Loop
+	bool running = true;
+	SDL_Event event;
 
-	glClearColor(0.5, 0.5, 0.5, 0.5);
-	glBegin(GL_TRIANGLES);
-	glColor3f(0.1, 0.2, 0.3);
-	glVertex3f(0, 0, 0);
-	glVertex3f(1, 0, 0);
-	glVertex3f(0, 1, 0);
-	glEnd();
+	while(true)
+	{
+		// Handle Messages
+		SDL_PollEvent(&event);
+		if(event.type == SDL_QuitEvent)
+			break;
 
-	SDL_GL_SwapWindow(window);
+		// Render
+		glClearColor(0.5, 0.5, 0.5, 0.5);
+		SDL_GL_SwapWindow(window);
 
+		glClearColor(0.5, 0.5, 0.5, 0.5);
+		glBegin(GL_TRIANGLES);
+		glColor3f(0.1, 0.2, 0.3);
+		glVertex3f(0, 0, 0);
+		glVertex3f(1, 0, 0);
+		glVertex3f(0, 1, 0);
+		glEnd();
+
+		SDL_GL_SwapWindow(window);
+	}
 	SDL_Delay(3000);
 
 	SDL_DestroyWindow(window);
-
-	atexit(SDL_Quit);
+	SDL_Quit();
 }
