@@ -1,0 +1,3 @@
+#!/bin/bash
+mkdir bin
+gcc royal-okami.cpp -lstdc++ -lSDL2 -lGL -o bin/royal-okami
